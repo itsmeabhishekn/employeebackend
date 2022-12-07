@@ -20,9 +20,9 @@ public class Employees {
 
     private int salary;
 
-    private String companyname;
+    private String companyName;
 
-    private String mobile;
+    private String mobileNo;
 
     private String username;
 
@@ -31,13 +31,13 @@ public class Employees {
     public Employees() {
     }
 
-    public Employees(int empcode, String name, String designation, int salary, String companyname, String mobile, String username, String password) {
-        this.empcode = empcode;
+    public Employees(int code, String name, String designation, int salary, String companyName, String username, String password, String mobileNo) {
+        this.empcode = code;
         this.name = name;
         this.designation = designation;
         this.salary = salary;
-        this.companyname = companyname;
-        this.mobile = mobile;
+        this.companyName = companyName;
+        this.mobileNo = mobileNo;
         this.username = username;
         this.password = password;
     }
@@ -74,20 +74,20 @@ public class Employees {
         this.salary = salary;
     }
 
-    public String getCompanyname() {
-        return companyname;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCompanyname(String companyname) {
-        this.companyname = companyname;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
     public String getUsername() {

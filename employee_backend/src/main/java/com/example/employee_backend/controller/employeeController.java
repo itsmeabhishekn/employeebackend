@@ -25,16 +25,16 @@ public class employeeController {
     public String add(@RequestBody Employees e)
     {
 
-        System.out.println(e.getName().toString());
-        System.out.println(e.getCompanyname().toString());
+        System.out.println(e.getName());
+        System.out.println(e.getCompanyName());
         System.out.println(e.getDesignation());
         System.out.println(e.getEmpcode());
-        System.out.println(e.getMobile());
+        System.out.println(e.getMobileNo());
         System.out.println(e.getPassword());
         System.out.println(e.getUsername());
         System.out.println(e.getSalary());
         dao.save(e);
-        return "this is the add page ";
+        return "{\"status\":\"success\"}";
     }
 
     @CrossOrigin(origins = "*")
@@ -45,10 +45,12 @@ public class employeeController {
     }
 
     @CrossOrigin(origins = "*")
-    @PostMapping("/search")
-    public String search()
+    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    public List<Employees> search(@RequestBody Employees s)
     {
-        return "this is the search page ";
+        String empcode=String.valueOf(s.getEmpcode());
+        System.out.println(empcode);
+        return (List<Employees>) dao.search(s.getEmpcode());
     }
 
     @CrossOrigin(origins = "*")
