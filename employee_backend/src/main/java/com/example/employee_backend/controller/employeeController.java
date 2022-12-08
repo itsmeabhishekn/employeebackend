@@ -5,6 +5,7 @@ import com.example.employee_backend.model.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -63,10 +64,15 @@ public class employeeController {
     }
 
     @CrossOrigin(origins = "*")
-    @PostMapping("delete")
-    public String delete()
+    @PostMapping("/delete")
+    public HashMap<String, String> delete(@RequestBody Employees d )
     {
-        return "this is the delete page ";
+        String empcode = String.valueOf(d.getEmpcode());
+        System.out.println(empcode);
+        dao.delete(d.getEmpcode());
+        HashMap<String,String> map = new HashMap<>();
+        map.put("status","success");
+        return map;
     }
 
 }
